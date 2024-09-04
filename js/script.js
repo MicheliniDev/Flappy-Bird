@@ -6,6 +6,10 @@ let ground = new Ground(0,700,500,200, 'img/ground.png')
 let ground2 = new Ground(500,700,500,200, 'img/ground.png')
 let bird = new Bird(50, 400, 63, 51, "img/bird0.png")
 
+document.addEventListener('click', function(e){
+    bird.velocidade -= 12
+})
+
 function draw(){
     bg.draw()
     bg2.draw()
@@ -20,7 +24,9 @@ function update(){
     ground.move(1, -500,0)
     ground2.move(1,0,500)
 
+    bird.move()
     bird.animacao(7, 4, 'bird')
+    bird.limite()
 }
 
 function main(){
